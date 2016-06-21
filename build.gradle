@@ -1,0 +1,57 @@
+plugins {
+    id "com.github.hierynomus.license" version "0.12.1"
+}
+
+defaultTasks 'build'
+
+apply plugin: "com.github.hierynomus.license"
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+group = 'com.xebialabs.deployit.community'
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+version = '1.0.0'
+def apiVersion = '4.0.1'
+def xldeployHome = "$System.env.XLDEPLOY_HOME"
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	maven {
+	    credentials {
+            username 'community-plugins'
+            password 'community'
+        }
+  		url 'http://nexus.xebialabs.com/nexus/content/repositories/releases'
+    }
+}
+
+dependencies {
+	compile "com.xebialabs.deployit:udm-plugin-api:$apiVersion"
+	compile "com.xebialabs.deployit:engine-spi:$apiVersion"
+	compile "com.xebialabs.deployit:engine-api:$apiVersion"
+	compile "com.google.guava:guava:10.0.1"
+	compile "net.sf.jt400:jt400-full:6.0"
+
+        compile zipTree(xldeployHome + '/plugins/base-plugin-5.5.0.xldp')
+	compile zipTree(xldeployHome + '/plugins/generic-plugin-5.5.0.xldp')
+}
+
+import org.apache.tools.ant.filters.*
+ 
+processResources {
+    filter ReplaceTokens, tokens: [
+        "project.version": project.property("version"),
+        "project.artifactId": project.property("name")
+    ]
+}
+
+license {
+    header rootProject.file('src/main/license/xebialabs_community.license')
+    strictCheck true
+}
+
+
