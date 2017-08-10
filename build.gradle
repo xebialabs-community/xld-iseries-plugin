@@ -40,8 +40,8 @@ dependencies {
   compile "com.google.guava:guava:10.0.1"
   compile "net.sf.jt400:jt400-full:6.0"
 
-  compile zipTree("xlDeployHome/plugins/base-plugin-7.0.0.xldp")
-  compile zipTree("xlDeployHome/plugins/generic-plugin-7.0.0.xldp")
+  compile zipTree("$xlDeployHome/plugins/base-plugin-7.0.0.xldp")
+  compile zipTree("$xlDeployHome/plugins/generic-plugin-7.0.0.xldp")
 }
 
 import org.apache.tools.ant.filters.*
