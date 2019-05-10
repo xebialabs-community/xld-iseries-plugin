@@ -3,4 +3,7 @@ language: java
 install: true
 script: "./gradlew compileDocker"
 services:
-  - docker
+- docker
+notifications:
+  slack:
+    secure: DNmBG1haVb9sX2p4RvVVku3fiyvkM6jpARVbutcvLczhpD2ckheTyrXuhd/i4mvc3Gh+B55IkrozGIPNx+lZ8BITBl++8rF56J9TFPuQhMbyzGx1XRHqynjfTKyktLTP6ikGXdRA1Phm/+Hasv2YNqs/DRXlZWeYv++6seAOxiKrcaD5JgZZ/MduhPNPd/UYN8FJL2DLo5MFThq6/7I1TLuWZpUw/gPceXxVUjiB7646T/MuxA2npusjVkYrU0pj+pRY+clDnka925X1feXCbtdJ2p7mZUJ2bSDzzPFzLf4NveqDFXZ+OGzSvPZl5dxY8L05luklkO7l0KF+a/+1/ZzGDzOdX8QU1LIr4NfIGoW/bN/TnRv6N1P3xiLeIhi/EhJBMYIzIjLQGJtyzq4c+7/UQ0FjZ2swr/6yS6r4oM+BYu4i3vRawdthbbdWEinFUPTcy+bxLqHqmr0ydOrKa7jhESewHb98WJdiAcOw6nKX/4miOgHFYjGo6lY8TxGMWGMK6b7PECMvM9p0rvkH7Y2t6JDpELHdyn7ryZ3Nm82eH60L5iv/evqRekKBPyUkZD5IaVjDokvXswMlhYONJNITk5kfqW9gnq+do07lqijEQiKqbRpyvGuKXmxyQgzXWDsgU1Vd2Cit3jiHo3bTnZEIf0F/Fi+M2GTKZZHgOdU=
